@@ -33,6 +33,14 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+# Compiled output artifacts
+**/bin/**
+**/obj/**
+**/*.dll
+**/*.exe
+**/*.pdb
+**/*.cache
+
 # Visual Studio 2015/2017 cache/options directory
 .vs/
 # Uncomment if you have tasks that create the project's static files in wwwroot
