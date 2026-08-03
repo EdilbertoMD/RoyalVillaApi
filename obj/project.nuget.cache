@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "I/b0LatR80s=",
+  "dgSpecHash": "OC8vIPT7XgU=",
   "success": true,
-  "projectFilePath": "c:\\SofttekCursos\\RoyalVillaApi\\RoyalVillaApi.csproj",
+  "projectFilePath": "C:\\SofttekCursos\\RoyalVillaApi\\RoyalVillaApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\edilberto.martinez\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\edilberto.martinez\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.9\\microsoft.aspnetcore.openapi.10.0.9.nupkg.sha512",
@@ -40,9 +40,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
-      "projectPath": "c:\\SofttekCursos\\RoyalVillaApi\\RoyalVillaApi.csproj",
+      "projectPath": "C:\\SofttekCursos\\RoyalVillaApi\\RoyalVillaApi.csproj",
       "warningLevel": 1,
-      "filePath": "c:\\SofttekCursos\\RoyalVillaApi\\RoyalVillaApi.csproj",
+      "filePath": "C:\\SofttekCursos\\RoyalVillaApi\\RoyalVillaApi.csproj",
       "libraryId": "Microsoft.OpenApi",
       "targetGraphs": [
         "net10.0"

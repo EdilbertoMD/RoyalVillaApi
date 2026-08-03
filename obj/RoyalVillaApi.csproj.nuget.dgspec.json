@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\SofttekCursos\\RoyalVillaApi\\RoyalVillaApi.csproj": {}
+    "C:\\SofttekCursos\\RoyalVillaApi\\RoyalVillaApi.csproj": {}
   },
   "projects": {
-    "c:\\SofttekCursos\\RoyalVillaApi\\RoyalVillaApi.csproj": {
+    "C:\\SofttekCursos\\RoyalVillaApi\\RoyalVillaApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\SofttekCursos\\RoyalVillaApi\\RoyalVillaApi.csproj",
+        "projectUniqueName": "C:\\SofttekCursos\\RoyalVillaApi\\RoyalVillaApi.csproj",
         "projectName": "RoyalVillaApi",
-        "projectPath": "c:\\SofttekCursos\\RoyalVillaApi\\RoyalVillaApi.csproj",
+        "projectPath": "C:\\SofttekCursos\\RoyalVillaApi\\RoyalVillaApi.csproj",
         "packagesPath": "C:\\Users\\edilberto.martinez\\.nuget\\packages\\",
-        "outputPath": "c:\\SofttekCursos\\RoyalVillaApi\\obj\\",
+        "outputPath": "C:\\SofttekCursos\\RoyalVillaApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\edilberto.martinez\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -39,7 +39,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net10.0": {
@@ -88,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.110/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

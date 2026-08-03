@@ -26,6 +26,9 @@ namespace RoyalVillaApi.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(ApiResponse<IEnumerable<VillaResponseDto>>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ApiResponse<IEnumerable<VillaResponseDto>>>> GetAllVillas()
         {
             try
@@ -35,7 +38,7 @@ namespace RoyalVillaApi.Controllers
                 // Si no hay villas
                 if (!villas.Any())
                     // Retorna no content
-                    return Ok(ApiResponse<IEnumerable<VillaResponseDto>>.NoContent("No se encontraron villas registradas."));
+                    return Ok(ApiResponse<object>.NoContent("No se encontraron villas registradas."));
                 // Mapea la lista de villas a la lista de dtos
                 var villasDto = _mapper.ToDtoList(villas);
                 // Crear response
@@ -53,6 +56,10 @@ namespace RoyalVillaApi.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(ApiResponse<VillaResponseDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ApiResponse<VillaResponseDto>>> GetVillaById(int id)
         {
             try
@@ -85,6 +92,10 @@ namespace RoyalVillaApi.Controllers
 
         // CREAR VILLA
         [HttpPost]
+        [ProducesResponseType(typeof(ApiResponse<VillaResponseDto>), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status409Conflict)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ApiResponse<VillaResponseDto>>> CreateVilla([FromBody] VillaCreateRequestDto villaCreateDto)
         {
             try
@@ -122,6 +133,10 @@ namespace RoyalVillaApi.Controllers
 
         // ACTUALIZAR VILLA
         [HttpPut("{id}")]
+        [ProducesResponseType(typeof(ApiResponse<VillaResponseDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status409Conflict)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ApiResponse<VillaResponseDto>>> UpdateVilla(int id, [FromBody] VillaUpdateRequestDto villaUpdateDto)
         {
             try
@@ -158,7 +173,10 @@ namespace RoyalVillaApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteVilla(int id)
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<ApiResponse<object>>> DeleteVilla(int id)
         {
             try
             {
@@ -166,13 +184,13 @@ namespace RoyalVillaApi.Controllers
                 var villa = await _context.Villas.FindAsync(id);
                 if (villa == null)
                     return NotFound(ApiResponse<object>.NotFound($"La villa con ID {id} no existe"));
-                
                 // Eliminar la villa
                 _context.Villas.Remove(villa);
                 await _context.SaveChangesAsync();
-                
+                // Crear response
+                var response = ApiResponse<object>.NoContent("Villa eliminada exitosamente");
                 // Retornar status 204 No Content
-                return Ok(ApiResponse<object>.NoContent("Villa eliminada exitosamente"));
+                return Ok(response);
             }
             catch(Exception ex)
             {
@@ -182,8 +200,5 @@ namespace RoyalVillaApi.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, response);
             }
         }
-
-
-
     }
 }
